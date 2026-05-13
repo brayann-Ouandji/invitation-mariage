@@ -59,7 +59,7 @@ function RSVPSection() {
       if (choix === "confirme") {
        // const qrContent = `${nom.trim()}\nInvitation au mariage de Erika & Audry\nLe 5 septembre 2026 à 19h\nNorthlaan 13, 8400 Oostende`;
        const nomEncoded = encodeURIComponent(nom.trim());
-       const qrContent = 'http://localhost:3000/invitation/${nomEncoded}';//`https://ton-site.com/invitation/${nomEncoded}`; Remplace ton-site.com par ton vrai domaine une fois le site en ligne. En local pour tester, utilise http://localhost:3000/invitation/${nomEncoded}
+       const qrContent = 'https://invitation-mariage-7j6s.vercel.app/${nomEncoded}';
         const dataUrl = await QRCode.toDataURL(qrContent, {
           width: 300,
           margin: 2,
