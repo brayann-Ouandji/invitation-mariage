@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model RSVP {
+  id        Int      @id @default(autoincrement())
+  nom       String
+  statut    String
+  createdAt DateTime @default(now())
+}
+
+model LivreOr {
+  id        Int      @id @default(autoincrement())
+  nom       String
+  message   String
+  createdAt DateTime @default(now())
+}
