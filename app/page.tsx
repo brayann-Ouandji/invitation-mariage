@@ -59,7 +59,7 @@ function RSVPSection() {
       if (choix === "confirme") {
        // const qrContent = `${nom.trim()}\nInvitation au mariage de Erika & Audry\nLe 5 septembre 2026 à 19h\nNorthlaan 13, 8400 Oostende`;
        const nomEncoded = encodeURIComponent(nom.trim());
-       const qrContent = 'https://invitation-mariage-7j6s.vercel.app/${nomEncoded}';
+       const qrContent = 'https://invitation-mariage-7j6s.vercel.app/invitation/${nomEncoded}';
         const dataUrl = await QRCode.toDataURL(qrContent, {
           width: 300,
           margin: 2,
