@@ -4,6 +4,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Invitation Erika & Audry Mariage 2026",
   description: "Nous vous invitons à célébrer notre union.",
+  icons : {
+    icon : "/logo.jpeg"
+  }
 };
 
 export default function RootLayout({
