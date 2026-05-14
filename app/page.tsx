@@ -376,13 +376,13 @@ export default function Home() {
               <circle cx="42" cy="20" r="16" stroke="#f89b05" strokeWidth="2.5" fill="none" />
             </svg>
           </div>
-          <p className="tracking-[0.35em] text-[20px] uppercase text-[#7B002C  ] font-light mb-1" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+          <p className="tracking-[0.35em] text-[20px] uppercase text-[#f89b05] font-light mb-1" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
             Invitation
           </p>
-          <div className="w-16 h-px bg-[#7B002C  ] opacity-60 mb-6" />
+          <div className="w-16 h-px bg-[#f89b05] opacity-60 mb-6" />
           <div className="animate-bounce mt-2">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M5 8l5 5 5-5" stroke="#7B002C  " strokeWidth="1.5" strokeLinecap="round" />
+              <path d="M5 8l5 5 5-5" stroke="#f89b05" strokeWidth="1.5" strokeLinecap="round" />
             </svg>
           </div>
         </div>
@@ -390,7 +390,7 @@ export default function Home() {
         {/* Bas : noms */}
         <div className="absolute bottom-[8vh] left-0 right-0 z-10 flex flex-col items-center px-4 text-center">
           <h1 className="text-5xl md:text-7xl text-[#2c2118] leading-none mb-3" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300 }}>
-            Erika <span className="text-[#7B002C  ]">&</span> Audry
+            Erika <span className="text-[#f89b05]">&</span> Audry
           </h1>
           <p className="text-sm md:text-base tracking-[0.2em] text-[#7a6a58] uppercase font-light" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
             5 Septembre 2026 · 19h · Oostende
@@ -402,7 +402,7 @@ export default function Home() {
           COMPTE À REBOURS
       ══════════════════════════════════════ */}
       <section className="py-20 px-4 bg-[#faf8f5]">
-        <p className="text-center tracking-[0.3em] text-[20px] uppercase text-[#7B002C  ] mb-10" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+        <p className="text-center tracking-[0.3em] text-[20px] uppercase text-[#f89b05] mb-10" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
           Plus que…
         </p>
 
@@ -429,11 +429,11 @@ export default function Home() {
 
         {/* Séparateur décoratif */}
         <div className="flex items-center justify-center gap-4 mt-16 mb-0">
-          <div className="h-px w-16 md:w-32 bg-[#2c2118  ] opacity-40" />
+          <div className="h-px w-16 md:w-32 bg-[#f89b05] opacity-40" />
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-            <path d="M9 1l2 6h6l-5 4 2 6-5-4-5 4 2-6-5-4h6z" fill="#7B002C  " opacity="0.6" />
+            <path d="M9 1l2 6h6l-5 4 2 6-5-4-5 4 2-6-5-4h6z" fill="#f89b05" opacity="0.6" />
           </svg>
-          <div className="h-px w-16 md:w-32 bg-[#2c2118  ] opacity-40" />
+          <div className="h-px w-16 md:w-32 bg-[#f89b05] opacity-40" />
         </div>
       </section>
 
