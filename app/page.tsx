@@ -40,8 +40,19 @@ function RSVPSection() {
   const [loading, setLoading] = useState(false);
   const [confirmed, setConfirmed] = useState(false);
   const [qrDataUrl, setQrDataUrl] = useState<string | null>(null);
+  const [dejaPondu, setDejaRepondu] = useState(false); 
+  const [nomSauvegarde, setNomSauvegarde] = useState("");
   const canvasRef = useRef<HTMLCanvasElement>(null);
  
+   useEffect(() => {
+    const rsvpSauvegarde = localStorage.getItem("rsvp_statut");
+    const nomLocal = localStorage.getItem("rsvp_nom");
+    if (rsvpSauvegarde && nomLocal) {
+      setDejaRepondu(true);
+      setNomSauvegarde(nomLocal);
+      setStatut(rsvpSauvegarde as "confirme" | "decline");
+    }
+  }, []);
   const handleRSVP = async (choix: "confirme" | "decline") => {
     if (!nom.trim()) {
       alert("Veuillez entrer votre nom complet.");
@@ -56,6 +67,9 @@ function RSVPSection() {
       });
       setStatut(choix);
       setConfirmed(true);
+      // Sauvegarder dans localStorage
+      localStorage.setItem("rsvp_statut", choix);
+      localStorage.setItem("rsvp_nom", nom.trim());
  
       if (choix === "confirme") {
        // const qrContent = `${nom.trim()}\nInvitation au mariage de Erika & Audry\nLe 5 septembre 2026 à 19h\nNorthlaan 13, 8400 Oostende`;
@@ -82,6 +96,19 @@ function RSVPSection() {
     link.download = `invitation-${nom.trim().replace(/\s+/g, "-")}.png`;
     link.click();
   };
+  {dejaPondu && (
+  <div className="mb-8 px-5 py-4 border border-[#e8e0d5] bg-[#f3ede4] text-center">
+    <p className="text-sm text-[#7a6a58]" style={garamond}>
+      Vous avez déjà répondu,{" "}
+      <span className="text-[#b89a6a] italic">{nomSauvegarde}</span>. 🤍
+    </p>
+    <p className="text-xs text-[#a89880] mt-1" style={garamond}>
+      {statut === "confirme"
+        ? "Votre présence est confirmée — à très bientôt !"
+        : "Vous avez décliné notre invitation.(grosse erreur mais c'esrt pas grave)"}
+    </p>
+  </div>
+)}
  
  
  
