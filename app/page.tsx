@@ -260,47 +260,82 @@ function LivreOrSection() {
           Laissez un mot aux mariés — il restera gravé pour toujours.
         </p>
  
-        {!sent ? (
-          <div className="flex flex-col gap-4 text-left">
-            <input
-              type="text"
-              placeholder="Votre nom"
-              value={nom}
-              onChange={(e) => setNom(e.target.value)}
-              className="w-full border border-[#d8cfc4] bg-transparent px-5 py-3 text-[#2c2118] placeholder-[#b89a6a] outline-none focus:border-[#b89a6a] transition-colors"
-              style={garamond}
-            />
-            <textarea
-              placeholder="Votre message aux mariés…"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              rows={4}
-              className="w-full border border-[#d8cfc4] bg-transparent px-5 py-3 text-[#2c2118] placeholder-[#b89a6a] outline-none focus:border-[#b89a6a] transition-colors resize-none"
-              style={garamond}
-            />
-            <button
-              onClick={handleSubmit}
-              disabled={loading}
-              className="self-center px-10 py-3 bg-[#b89a6a] text-white text-xs tracking-[0.25em] uppercase hover:bg-[#a08558] transition-colors disabled:opacity-50"
-              style={garamond}
-            >
-              Envoyer ✉
-            </button>
-          </div>
-        ) : (
-          /* Message de remerciement */
-          <div className="flex flex-col items-center gap-4 py-8">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#b89a6a" strokeWidth="1.2">
-              <path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            <p className="text-2xl text-[#2c2118]" style={{ ...garamond, fontWeight: 300 }}>
-              Merci pour vos doux mots
-            </p>
-            <p className="text-[#7a6a58] text-sm" style={garamond}>
-              Votre message a été ajouté au livre d'or 🤍
-            </p>
-          </div>
-        )}
+        /* Remplace le bloc "sent" dans LivreOrSection — de {sent ? ( ... ) : ( formulaire )} */
+
+{!sent ? (
+  <div className="flex flex-col gap-4 text-left">
+    <input
+      type="text"
+      placeholder="Votre nom"
+      value={nom}
+      onChange={(e) => setNom(e.target.value)}
+      className="w-full border border-[#d8cfc4] bg-transparent px-5 py-3 text-[#2c2118] placeholder-[#b89a6a] outline-none focus:border-[#b89a6a] transition-colors"
+      style={garamond}
+    />
+    <textarea
+      placeholder="Votre message aux mariés…"
+      value={message}
+      onChange={(e) => setMessage(e.target.value)}
+      rows={4}
+      className="w-full border border-[#d8cfc4] bg-transparent px-5 py-3 text-[#2c2118] placeholder-[#b89a6a] outline-none focus:border-[#b89a6a] transition-colors resize-none"
+      style={garamond}
+    />
+    <button
+      onClick={handleSubmit}
+      disabled={loading}
+      className="self-center px-10 py-3 bg-[#b89a6a] text-white text-xs tracking-[0.25em] uppercase hover:bg-[#a08558] transition-colors disabled:opacity-50"
+      style={garamond}
+    >
+      Envoyer ✉
+    </button>
+  </div>
+) : (
+  <div className="flex flex-col items-center gap-6">
+    {/* Remerciement */}
+    <div className="flex flex-col items-center gap-3">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#b89a6a" strokeWidth="1.2">
+        <path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+      <p className="text-2xl text-[#2c2118]" style={{ ...garamond, fontWeight: 300 }}>
+        Merci pour vos doux mots
+      </p>
+      <p className="text-[#7a6a58] text-sm" style={garamond}>
+        Votre message a été ajouté au livre d'or 🤍
+      </p>
+    </div>
+
+    {/* Séparateur */}
+    <div className="w-full h-px bg-[#e8e0d5]" />
+
+    {/* Liste de mariage */}
+    <div className="w-full text-center flex flex-col items-center gap-4 px-2">
+      <p className="text-xs tracking-[0.25em] uppercase text-[#b89a6a]" style={garamond}>
+        Livre d'or & Liste de mariage
+      </p>
+      <p className="text-base text-[#4a3f35] leading-relaxed" style={{ ...garamond, fontWeight: 300 }}>
+        Si le cœur vous en dit, vous pouvez accompagner Erika & Audry dans la construction de leur nouveau foyer en participant à leur liste de mariage.
+      </p>
+
+      {/* Coordonnées bancaires */}
+      <div className="w-full border border-[#e8e0d5] bg-[#faf8f5] p-5 flex flex-col gap-3 text-left">
+        <div>
+          <p className="text-[10px] tracking-widest uppercase text-[#b89a6a] mb-1" style={garamond}>Bénéficiaire</p>
+          <p className="text-base text-[#2c2118]" style={{ ...garamond, fontWeight: 300 }}>Audry Bangofa</p>
+        </div>
+        <div className="h-px bg-[#e8e0d5]" />
+        <div>
+          <p className="text-[10px] tracking-widest uppercase text-[#b89a6a] mb-1" style={garamond}>IBAN</p>
+          <p className="text-base text-[#2c2118] tracking-wider" style={{ ...garamond, fontWeight: 300 }}>BE94 3771 3164 6114</p>
+        </div>
+      </div>
+
+      {/* Invite capture d'écran */}
+      <p className="text-xs text-[#a89880] italic" style={garamond}>
+        Pensez à faire une capture d'écran pour ne pas perdre ces informations ! 
+      </p>
+    </div>
+  </div>
+)}
  
         {/* Les 3 derniers messages */}
         {messages.length > 0 && (
