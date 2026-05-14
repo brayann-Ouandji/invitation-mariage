@@ -28,9 +28,10 @@ function useCountdown(target: Date): TimeLeft {
 }
 
 const storyParagraphs = [
-  "Erika and Audry met on social media and their common passion for art and fashion makes",
-  "them closer. From a simple friendship, they became lovers. And the fruit of this love is Davan.",
-  "Together they raise a little bay and want to share thair journey with you.",];
+  "Erika et Audry se sont rencontrés sur les réseaux sociaux, où leur passion commune pour l’art",
+  "et la mode les a rapprochés. D’une simple amitié est née une belle histoire d’amour.",
+  "Aujourd’hui, ils élèvent ensemble leur petit garçon et souhaitent partager cette",
+  "merveilleuse aventure avec vous.",];
 
   // ─── RSVP Section ─────────────────────────────────────
 function RSVPSection() {
