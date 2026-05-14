@@ -506,7 +506,7 @@ export default function Home() {
  
           {/* En-tête */}
           <p className="tracking-[0.3em] text-[25px] uppercase text-[#b89a6a] mb-3" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-            THE STORY
+            L'HISTOIRE
           </p>
           <h2 className="text-4xl md:text-5xl text-[#2c2118] mb-10" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300 }}>
             Erika <span className="italic text-[#b89a6a]">&</span> Audry
@@ -541,7 +541,7 @@ export default function Home() {
             className="mt-12 text-3xl italic text-[#b89a6a]"
             style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300 }}
           >
-            Join us in celebrating their union.
+            Joignez-vous à eux pour célébrer leur union.
           </p>
  
         </div>
