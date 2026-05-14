@@ -312,7 +312,9 @@ function LivreOrSection() {
         Livre d'or & Liste de mariage
       </p>
       <p className="text-base text-[#4a3f35] leading-relaxed" style={{ ...garamond, fontWeight: 300 }}>
-        Si le cœur vous en dit, vous pouvez accompagner Erika & Audry dans la construction de leur nouveau foyer en participant à leur liste de mariage.
+        Votre présence à nos côtés est le plus beau des cadeaux.
+        Si vous souhaitez néanmoins nous témoigner votre affection par une attention, une participation
+         à notre cagnotte de mariage serait grandement appréciée.
       </p>
 
       {/* Coordonnées bancaires */}
