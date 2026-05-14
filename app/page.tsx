@@ -260,7 +260,6 @@ function LivreOrSection() {
           Laissez un mot aux mariés — il restera gravé pour toujours.
         </p>
  
-        /* Remplace le bloc "sent" dans LivreOrSection — de {sent ? ( ... ) : ( formulaire )} */
 
 {!sent ? (
   <div className="flex flex-col gap-4 text-left">
