@@ -429,11 +429,11 @@ export default function Home() {
 
         {/* Séparateur décoratif */}
         <div className="flex items-center justify-center gap-4 mt-16 mb-0">
-          <div className="h-px w-16 md:w-32 bg-[#7B002C  ] opacity-40" />
+          <div className="h-px w-16 md:w-32 bg-[#2c2118  ] opacity-40" />
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
             <path d="M9 1l2 6h6l-5 4 2 6-5-4-5 4 2-6-5-4h6z" fill="#7B002C  " opacity="0.6" />
           </svg>
-          <div className="h-px w-16 md:w-32 bg-[#7B002C  ] opacity-40" />
+          <div className="h-px w-16 md:w-32 bg-[#2c2118  ] opacity-40" />
         </div>
       </section>
 
