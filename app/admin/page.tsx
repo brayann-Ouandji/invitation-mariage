@@ -118,7 +118,7 @@ export default function AdminPage() {
             {([
               { key: "rsvps", label: `Présences (${rsvps.length})` },
               { key: "messages", label: `Livre d'or (${messages.length})` },
-              { key: "musiques", label: `🎵 Musiques (${musiques.length})` },
+              { key: "musiques", label: `Musiques (${musiques.length})` },
             ] as const).map(({ key, label }) => (
               <button key={key} onClick={() => setOnglet(key)} style={{
                 padding: "10px 20px", background: "transparent", border: "none",
