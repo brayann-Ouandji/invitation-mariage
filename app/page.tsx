@@ -74,7 +74,7 @@ function RSVPSection() {
       if (choix === "confirme") {
        // const qrContent = `${nom.trim()}\nInvitation au mariage de Erika & Audry\nLe 5 septembre 2026 à 19h\nNorthlaan 13, 8400 Oostende`;
        const nomEncoded = encodeURIComponent(nom.trim());
-       const qrContent = 'https://invitation-mariage-7j6s.vercel.app/invitation/${nomEncoded}';
+       const qrContent = `https://invitation-mariage-7j6s.vercel.app/invitation/${nomEncoded}`;
         const dataUrl = await QRCode.toDataURL(qrContent, {
           width: 300,
           margin: 2,
@@ -573,9 +573,9 @@ export default function Home() {
             { value: timeLeft.secondes, label: "Secondes" },
           ].map(({ value, label }) => (
             <div key={label} className="flex flex-col items-center">
-              <span
-                className="text-5xl md:text-7xl text-[#2c2118] tabular-nums leading-none"
+              <span className="text-5xl md:text-7xl text-[#2c2118] tabular-nums leading-none"
                 style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300 }}
+                suppressHydrationWarning
               >
                 {String(value).padStart(2, "0")}
               </span>

@@ -1,8 +1,8 @@
- "use client";
+"use client";
 import { useEffect, useState } from "react";
 
 const garamond = { fontFamily: "'Cormorant Garamond', serif" };
-const MOT_DE_PASSE = "ErikaetAudry"; // ← change ce mot de passe
+const MOT_DE_PASSE = "ErikaetAudry"; // 
 
 type RSVP = { id: number; nom: string; statut: string; createdAt: string };
 type Message = { id: number; nom: string; message: string; createdAt: string };
@@ -34,17 +34,26 @@ export default function AdminPage() {
   };
 
   useEffect(() => {
-    if (!connecte) return;
-    setLoading(true);
-    Promise.all([
-      fetch("/api/admin").then((r) => r.json()),
-      fetch("/api/musique").then((r) => r.json()),
-    ]).then(([adminData, musiqueData]) => {
+  if (!connecte) return;
+  setLoading(true);
+
+  fetch("/api/admin")
+    .then((r) => r.json())
+    .then((adminData) => {
       setRsvps(adminData.rsvps || []);
       setMessages(adminData.messages || []);
+    })
+    .catch(() => console.error("Erreur chargement admin"));
+
+  fetch("/api/musique")
+    .then((r) => r.json())
+    .then((musiqueData) => {
       setMusiques(musiqueData.musiques || []);
-    }).finally(() => setLoading(false));
-  }, [connecte]);
+    })
+    .catch(() => console.error("Erreur chargement musiques"))
+    .finally(() => setLoading(false));
+
+}, [connecte]);
 
   if (!connecte) {
     return (
@@ -107,7 +116,7 @@ export default function AdminPage() {
               { label: "Musiques", value: musiques.length, color: "#7a6a58" },
             ].map(({ label, value, color }) => (
               <div key={label} style={{ background: "white", border: "1px solid #e8e0d5", padding: "1.5rem", textAlign: "center" }}>
-                <p style={{ fontSize: "2.5rem", fontWeight: 300, color, lineHeight: 1,  fontVariantNumeric: "normal", fontFamily: "sans-serif",}}>{value}</p>
+                <p style={{ fontSize: "2.5rem", fontWeight: 300, color, lineHeight: 1 }}>{value}</p>
                 <p style={{ fontSize: "10px", letterSpacing: "0.25em", textTransform: "uppercase", color: "#a89880", marginTop: "0.5rem" }}>{label}</p>
               </div>
             ))}
@@ -118,7 +127,7 @@ export default function AdminPage() {
             {([
               { key: "rsvps", label: `Présences (${rsvps.length})` },
               { key: "messages", label: `Livre d'or (${messages.length})` },
-              { key: "musiques", label: `Musiques (${musiques.length})` },
+              { key: "musiques", label: `🎵 Musiques (${musiques.length})` },
             ] as const).map(({ key, label }) => (
               <button key={key} onClick={() => setOnglet(key)} style={{
                 padding: "10px 20px", background: "transparent", border: "none",
