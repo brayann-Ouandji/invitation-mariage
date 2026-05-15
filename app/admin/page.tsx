@@ -107,7 +107,7 @@ export default function AdminPage() {
               { label: "Musiques", value: musiques.length, color: "#7a6a58" },
             ].map(({ label, value, color }) => (
               <div key={label} style={{ background: "white", border: "1px solid #e8e0d5", padding: "1.5rem", textAlign: "center" }}>
-                <p style={{ fontSize: "2.5rem", fontWeight: 300, color, lineHeight: 1 }}>{value}</p>
+                <p style={{ fontSize: "2.5rem", fontWeight: 300, color, lineHeight: 1,  fontVariantNumeric: "normal", fontFamily: "sans-serif",}}>{value}</p>
                 <p style={{ fontSize: "10px", letterSpacing: "0.25em", textTransform: "uppercase", color: "#a89880", marginTop: "0.5rem" }}>{label}</p>
               </div>
             ))}
