@@ -28,7 +28,7 @@ function useCountdown(target: Date): TimeLeft {
 }
 
 const storyParagraphs = [
-  "Erika et Audry se sont rencontrés sur les réseaux sociaux, où leur passion commune pour l’art",
+  "  Erika et Audry se sont rencontrés sur les réseaux sociaux, où leur passion commune pour l’art",
   "et la mode les a rapprochés. D’une simple amitié est née une belle histoire d’amour.",
   "Aujourd’hui, ils élèvent ensemble leur petit garçon et souhaitent partager cette",
   "merveilleuse aventure avec vous.",];
