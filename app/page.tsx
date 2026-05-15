@@ -396,6 +396,101 @@ function LivreOrSection() {
 
 
 // ── Composant principal ────────────────────────────────
+
+// ══════════════════════════════════════════════════════
+// SECTION MUSIQUE — à coller dans page.tsx
+// juste avant : export default function Home()
+// ══════════════════════════════════════════════════════
+
+function MusiqueSection() {
+  const [nom, setNom] = useState("");
+  const [musique, setMusique] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [sent, setSent] = useState(false);
+
+  const handleSubmit = async () => {
+    if (!nom.trim() || !musique.trim()) {
+      alert("Veuillez remplir votre nom et votre suggestion.");
+      return;
+    }
+    setLoading(true);
+    try {
+      const res = await fetch("/api/musique", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ nom: nom.trim(), musique: musique.trim() }),
+      });
+      const data = await res.json();
+      if (data.success) setSent(true);
+    } catch {
+      alert("Une erreur est survenue.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <section className="py-24 px-6 bg-[#faf8f5]">
+      <div className="max-w-xl mx-auto text-center">
+
+        {/* En-tête */}
+        <p className="tracking-[0.3em] text-[10px] uppercase text-[#b89a6a] mb-3" style={garamond}>
+          La piste de danse
+        </p>
+        <h2 className="text-4xl md:text-5xl text-[#2c2118] mb-4" style={{ ...garamond, fontWeight: 300 }}>
+          Votre tube incontournable
+        </h2>
+        <p className="text-[#7a6a58] text-base mb-10 leading-relaxed" style={{ ...garamond, fontWeight: 300 }}>
+          Quelle est la chanson qui vous ferait indubitablement quitter votre chaise et envahir la piste de danse ? Partagez-la avec nous — nous ferons de notre mieux pour l'intégrer à la soirée. 
+        </p>
+
+        {!sent ? (
+          <div className="flex flex-col gap-4 text-left">
+            <input
+              type="text"
+              placeholder="Votre nom"
+              value={nom}
+              onChange={(e) => setNom(e.target.value)}
+              className="w-full border border-[#d8cfc4] bg-transparent px-5 py-3 text-[#2c2118] placeholder-[#b89a6a] outline-none focus:border-[#b89a6a] transition-colors"
+              style={garamond}
+            />
+            <input
+              type="text"
+              placeholder="Titre — Artiste (ex: September — Earth, Wind & Fire)"
+              value={musique}
+              onChange={(e) => setMusique(e.target.value)}
+              className="w-full border border-[#d8cfc4] bg-transparent px-5 py-3 text-[#2c2118] placeholder-[#b89a6a] outline-none focus:border-[#b89a6a] transition-colors"
+              style={garamond}
+            />
+            <button
+              onClick={handleSubmit}
+              disabled={loading}
+              className="self-center px-10 py-3 bg-[#b89a6a] text-white text-xs tracking-[0.25em] uppercase hover:bg-[#a08558] transition-colors disabled:opacity-50"
+              style={garamond}
+            >
+              Envoyer !
+            </button>
+          </div>
+        ) : (
+          <div className="flex flex-col items-center gap-4 py-8">
+            <span className="text-4xl"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#b89a6a" strokeWidth="1.2">
+  <path d="M9 18V5l12-2v13" strokeLinecap="round" strokeLinejoin="round"/>
+  <circle cx="6" cy="18" r="3"/>
+  <circle cx="18" cy="16" r="3"/>
+</svg></span>
+            <p className="text-2xl text-[#2c2118]" style={{ ...garamond, fontWeight: 300 }}>
+              On note ça !
+            </p>
+            <p className="text-[#7a6a58] text-sm" style={garamond}>
+              Les mariés feront tout pour que votre chanson résonne ce soir-là. 
+            </p>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const weddingDate = new Date("2026-09-05T19:00:00");
@@ -618,6 +713,8 @@ export default function Home() {
 
       {/* ══ LIVRE D'OR ══ */}
       <LivreOrSection />
+      {/* ══ MUSIQUE ══ */}
+      <MusiqueSection />
  
       {/* ══ FOOTER ══ */}
       <footer className="py-12 text-center border-t border-[#e8e0d5] bg-[#faf8f5]">
