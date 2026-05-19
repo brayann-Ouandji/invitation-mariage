@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 const garamond = { fontFamily: "'Cormorant Garamond', serif" };
 const MOT_DE_PASSE = "ErikaetAudry"; // 
 
-type RSVP = { id: number; nom: string; statut: string; createdAt: string };
+type RSVP = { id: number; nom: string; statut: string; table?: string | null; createdAt: string };
 type Message = { id: number; nom: string; message: string; createdAt: string };
 type Musique = { id: number; nom: string; musique: string; createdAt: string };
 
@@ -150,7 +150,7 @@ export default function AdminPage() {
                 <table style={{ width: "100%", borderCollapse: "collapse" }}>
                   <thead>
                     <tr style={{ background: "#f3ede4" }}>
-                      {["Nom", "Statut", "Date de réponse"].map((h) => (
+                      {["Nom", "Statut", "Table", "Date de réponse"].map((h) => (
                         <th key={h} style={{ padding: "12px 16px", textAlign: "left", fontSize: "10px", letterSpacing: "0.2em", textTransform: "uppercase", color: "#b89a6a", fontWeight: 400 }}>{h}</th>
                       ))}
                     </tr>
@@ -164,9 +164,30 @@ export default function AdminPage() {
                             {r.statut === "confirme" ? "✓ Confirmé" : "✕ Décliné"}
                           </span>
                         </td>
+                         <td style={{ padding: "12px 16px" }}> <input
+  type="text"   
+  defaultValue={r.table ?? ""}
+  placeholder="—"
+  onBlur={async (e) => {
+    const val = e.target.value.trim();
+    if (val) {
+      await fetch("/api/admin/table", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: r.id, table: val }),
+      });
+    }
+  }}
+  style={{
+    width: "80px", border: "1px solid #d8cfc4", background: "transparent",
+    padding: "4px 8px", textAlign: "center", fontFamily: "'Cormorant Garamond', serif",
+    fontSize: "1rem", color: "#2c2118", outline: "none",
+  }}
+/>
+</td> 
                         <td style={{ padding: "12px 16px", color: "#a89880", fontSize: "0.85rem" }}>{formatDate(r.createdAt)}</td>
                       </tr>
-                    ))}
+                    ))} 
                   </tbody>
                 </table>
               )}

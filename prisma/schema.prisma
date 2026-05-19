@@ -11,6 +11,7 @@ model RSVP {
   id        Int      @id @default(autoincrement())
   nom       String
   statut    String
+  table     String?     // ← nullable, assignée par l'admin
   createdAt DateTime @default(now())
 }
 
@@ -27,3 +28,4 @@ model Musique {
   musique   String
   createdAt DateTime @default(now())
 }
+
