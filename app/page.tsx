@@ -124,7 +124,16 @@ function RSVPSection() {
         <p className="text-[#7a6a58] text-base mb-10" style={{ ...garamond, fontWeight: 300 }}>
           Merci de nous faire part de votre réponse.
         </p>
- 
+
+        {/* Note adultes uniquement */}
+<div className="w-full mb-6 px-4 py-3 border-l-2 border-[#b89a6a] bg-[#f3ede4] text-left">
+  <p className="text-[10px] tracking-[0.25em] uppercase text-[#b89a6a] mb-1" style={garamond}>
+    Note importante
+  </p>
+  <p className="text-xs text-[#4a3f35] leading-relaxed" style={garamond}>
+    La soirée est réservée aux <strong>adultes uniquement (18 ans et plus)</strong>. Aucune garderie ne sera prévue sur place. Merci pour votre compréhension.
+  </p>
+</div>
         {!confirmed ? (
           <div className="flex flex-col gap-4">
             {/* Champ nom */}
