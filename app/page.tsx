@@ -175,6 +175,21 @@ function RSVPSection() {
                     À très bientôt, <span className="text-[#b89a6a] italic">{nom}</span> 🤍
                   </p>
                 </div>
+                {/*Message adulte uniquement*/}
+
+                {/* NB adultes */}
+<div style={{
+  width: "100%",
+  padding: "0.75rem 1rem",
+  borderLeft: "2px solid #b89a6a",
+  background: "#f3ede4",
+  textAlign: "left",
+  marginTop: "0.5rem",
+}}>
+  <p className="text-xs text-[#4a3f35] leading-relaxed" style={garamond}>
+     <strong>Note :</strong> Malheuresement, la soirée est réservée aux adultes (18 ans et plus). Aucune garderie ne sera prévue sur place.
+  </p>
+</div>
  
                 {/* QR Code */}
                 {qrDataUrl && (

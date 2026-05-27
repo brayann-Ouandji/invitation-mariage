@@ -154,6 +154,21 @@ export default async function InvitationPage({ params }: Props) {
           >
             📍 Voir l'itinéraire
           </a>
+          {/* NB adultes uniquement */}
+<div style={{
+  margin: "1.5rem 0 1rem",
+  padding: "1rem 1.2rem",
+  borderLeft: "2px solid #b89a6a",
+  background: "#f3ede4",
+  textAlign: "left",
+}}>
+  <p style={{ fontSize: "10px", letterSpacing: "0.25em", textTransform: "uppercase", color: "#b89a6a", marginBottom: "0.5rem" }}>
+    Note importante
+  </p>
+  <p style={{ fontSize: "0.82rem", fontWeight: 300, color: "#4a3f35", lineHeight: 1.7 }}>
+    Malheureusement, aucun service de garderie ne sera prévu. La soirée est réservée aux <strong>adultes uniquement (18 ans et plus)</strong>, notamment en raison de l'alcool et de l'ambiance festive. Merci pour votre compréhension.
+  </p>
+</div>
 
           <p style={{ fontSize: "0.85rem", fontStyle: "italic", color: "#a89880", marginTop: "1rem" }}>
             "Et ainsi commence notre plus belle aventure."
