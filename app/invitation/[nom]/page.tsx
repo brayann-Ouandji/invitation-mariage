@@ -106,6 +106,18 @@ export default async function InvitationPage({ params }: Props) {
             <p style={{ fontSize: "0.95rem", color: "#7a6a58", letterSpacing: "0.05em" }}>8400 Oostende, Belgique</p>
           </div>
 
+          {/* Thème */}
+<div style={{ marginBottom: "1rem" }}>
+  <p style={{ fontSize: "10px", letterSpacing: "0.3em", textTransform: "uppercase", color: "#b89a6a", marginBottom: "0.25rem" }}>
+    Thème
+  </p>
+  <p style={{ fontSize: "1.2rem", fontWeight: 300, color: "#2c2118", fontStyle: "italic" }}>
+    Gala / Be Class.
+  </p>
+</div>
+
+<div style={{ height: "1px", width: "48px", background: "#b89a6a", opacity: 0.3, margin: "1rem auto" }} />
+
           {/* Numéro de table */}
           {numeroTable ? (
             <div style={{
