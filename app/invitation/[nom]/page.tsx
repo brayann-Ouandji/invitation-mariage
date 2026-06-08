@@ -146,6 +146,26 @@ export default async function InvitationPage({ params }: Props) {
             </div>
           )}
 
+          {/* Hébergements à proximité */}
+<div style={{
+  margin: "1.5rem 0",
+  padding: "1rem 1.2rem",
+  border: "1px dashed #d8cfc4",
+  background: "#faf8f5",
+  textAlign: "left",
+}}>
+  <p style={{ fontSize: "10px", letterSpacing: "0.3em", textTransform: "uppercase", color: "#b89a6a", marginBottom: "0.75rem" }}>
+    Hôtels
+  </p>
+  <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem" }}>
+    {["Royal Astrid", "Vayamundo", "Airbnb à proximité"].map((hotel) => (
+      <p key={hotel} style={{ fontSize: "0.9rem", fontWeight: 300, color: "#4a3f35", display: "flex", alignItems: "center", gap: "8px" }}>
+        <span style={{ color: "#b89a6a" }}>—</span> {hotel}
+      </p>
+    ))}
+  </div>
+</div>
+
           <a
             href="https://www.google.com/maps/dir/?api=1&destination=Northlaan+13,+8400+Oostende,+Belgium"
             target="_blank"
