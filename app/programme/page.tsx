@@ -6,53 +6,90 @@ const garamond = { fontFamily: "'Cormorant Garamond', serif" };
 
 // ── Icônes SVG dorées
 const Icons = {
+  // Bâtiment de la mairie avec fronton + drapeau
   mairie: (
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#b89a6a" strokeWidth="1.4">
-      <path d="M3 21h18M4 21V10M20 21V10M3 10l9-6 9 6M7 10v11M11 10v11M13 10v11M17 10v11" strokeLinecap="round" strokeLinejoin="round" />
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#b89a6a" strokeWidth="1.3">
+      <path d="M12 2v3M12 2l2 1.2M12 5l-2-1.5" strokeLinecap="round" />
+      <path d="M3 9l9-4 9 4" strokeLinecap="round" strokeLinejoin="round" />
+      <rect x="4" y="9" width="16" height="1.5" fill="#b89a6a" stroke="none" />
+      <path d="M5 10.5V20M19 10.5V20M9 10.5V20M15 10.5V20" strokeLinecap="round" />
+      <rect x="3" y="20" width="18" height="1.5" fill="#b89a6a" stroke="none" />
+      <rect x="8" y="13" width="2.4" height="4" rx="0.3" fill="#b89a6a" stroke="none" opacity="0.85" />
+      <rect x="13.6" y="13" width="2.4" height="4" rx="0.3" fill="#b89a6a" stroke="none" opacity="0.85" />
     </svg>
   ),
+
+  // Appareil photo vintage avec petit coeur sur le flash
   camera: (
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#b89a6a" strokeWidth="1.4">
-      <path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V9a1 1 0 011-1z" strokeLinecap="round" strokeLinejoin="round" />
-      <circle cx="12" cy="14" r="3.5" />
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#b89a6a" strokeWidth="1.3">
+      <rect x="3" y="8" width="18" height="12" rx="1.5" strokeLinejoin="round" />
+      <path d="M8 8l1.3-2h5.4L16 8" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="12" cy="14" r="3.2" />
+      <circle cx="12" cy="14" r="1.2" fill="#b89a6a" stroke="none" />
+      <path d="M6.5 5.5c.3-.5.9-.5 1.2 0 .3-.5.9-.5 1.2 0 0 .6-1.2 1.4-1.2 1.4s-1.2-.8-1.2-1.4z" fill="#b89a6a" stroke="none" />
     </svg>
   ),
+
+  // Église avec croix + toit
   eglise: (
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#b89a6a" strokeWidth="1.4">
-      <path d="M12 2v3M10.5 3.5h3M6 21V11L12 6l6 5v10M9 21v-6h6v6M4 21h16" strokeLinecap="round" strokeLinejoin="round" />
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#b89a6a" strokeWidth="1.3">
+      <path d="M12 2v2.2M11 3.2h2" strokeLinecap="round" />
+      <path d="M12 5l7 5.5V21H5V10.5z" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M9 21v-6a3 3 0 016 0v6" strokeLinecap="round" />
+      <path d="M4 21h16" strokeLinecap="round" />
+      <path d="M12 9v3M10.5 10.5h3" strokeLinecap="round" />
     </svg>
   ),
+
+  // Coeur au dessus + deux verres qui trinquent (comme le modèle)
   toast: (
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#b89a6a" strokeWidth="1.4">
-      <path d="M7 3l2 9-2 2M17 3l-2 9 2 2M6 21l3-7M18 21l-3-7" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M5 3h4M15 3h4" strokeLinecap="round" />
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#b89a6a" strokeWidth="1.3">
+      <path d="M12 6c-.6-1-1.6-1.6-2.6-1-1 .6-1.2 2 0 3.2L12 11l2.6-2.8c1.2-1.2 1-2.6 0-3.2-1-.6-2 0-2.6 1z" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M6 12l2.5 2-1 6M18 12l-2.5 2 1 6" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M4 11l2.5 1.5M20 11l-2.5 1.5" strokeLinecap="round" />
+      <path d="M5.5 20h4M14.5 20h4" strokeLinecap="round" />
     </svg>
   ),
+
+  // Coeur simple (pour "Soirée")
   soiree: (
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#b89a6a" strokeWidth="1.4">
-      <path d="M12 21c0-5-4.5-8-4.5-12A4.5 4.5 0 0112 4.5 4.5 4.5 0 0116.5 9c0 4-4.5 7-4.5 12z" strokeLinecap="round" strokeLinejoin="round" />
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#b89a6a" strokeWidth="1.3">
+      <path d="M12 20c-4-3-8-6.5-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 9c0 4.5-4 8-8 11z" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   ),
+
+  // Assiette en médaillon (cercle + couverts) comme le modèle
   repas: (
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#b89a6a" strokeWidth="1.4">
-      <circle cx="12" cy="12" r="9" />
-      <path d="M9 7v5M9 7c-1 0-1.5 1-1.5 2s.5 2 1.5 2M9 12v5M15 7v10M15 7c1.2 0 2 1.3 2 3s-.8 3-2 3" strokeLinecap="round" strokeLinejoin="round" />
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#b89a6a" strokeWidth="1.3">
+      <circle cx="12" cy="12" r="9.5" />
+      <path d="M9 7.5v4c0 .8-.5 1.5-1.3 1.5M8.3 13v5" strokeLinecap="round" />
+      <path d="M9 7.5v3M10 7.5v3" strokeLinecap="round" />
+      <path d="M15.5 7.5c0 1.5-.5 2.8-1.2 3.5v6.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   ),
+
+  // Gâteau à étages avec coeur au sommet
   gateau: (
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#b89a6a" strokeWidth="1.4">
-      <path d="M4 21v-5a2 2 0 012-2h12a2 2 0 012 2v5M4 21h16M6 14v-4a2 2 0 012-2h8a2 2 0 012 2v4M8 8V6a2 2 0 012-2h4a2 2 0 012 2v2" strokeLinecap="round" strokeLinejoin="round" />
-      <circle cx="12" cy="3" r="1" fill="#b89a6a" stroke="none" />
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#b89a6a" strokeWidth="1.3">
+      <path d="M12 3c-.5-.7-1.3-.7-1.6 0-.3.7 0 1.5.8 1.9.8-.4 1.1-1.2.8-1.9z" strokeLinecap="round" strokeLinejoin="round" />
+      <rect x="9.5" y="6" width="5" height="3" rx="0.4" />
+      <rect x="6.5" y="10.5" width="11" height="4" rx="0.4" />
+      <rect x="4" y="16" width="16" height="4.5" rx="0.4" />
+      <path d="M9 10.5v-1.5M12 10.5v-1.5M15 10.5v-1.5" strokeLinecap="round" />
+      <path d="M7 16v-1.5M12 16v-1.5M17 16v-1.5" strokeLinecap="round" />
     </svg>
   ),
+
+  // Silhouette qui danse, bras levés
   danse: (
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#b89a6a" strokeWidth="1.4">
-      <circle cx="12" cy="4" r="2" />
-      <path d="M12 6v6l-4 6M12 12l4 6M8 10l-3 2M16 10l3 2" strokeLinecap="round" strokeLinejoin="round" />
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#b89a6a" strokeWidth="1.3">
+      <circle cx="12" cy="4.2" r="1.8" />
+      <path d="M12 6.5v6.5" strokeLinecap="round" />
+      <path d="M12 8.5l-4-3M12 8.5l4-3" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M12 13l-3.5 7M12 13l3.5 7" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   ),
 };
-
 type Etape = {
   label: string;
   detail?: string;
