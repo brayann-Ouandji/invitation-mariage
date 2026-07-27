@@ -11,7 +11,6 @@ const programme = [
     heure: "10h00",
     mapsUrl: "https://www.google.com/maps/dir/?api=1&destination=Vindictivelaan+1,+8400+Oostende,+Belgium",
     datetime: new Date("2026-09-05T10:00:00"),
-    icon: "🏛️",
   },
   {
     label: "Église",
@@ -19,7 +18,6 @@ const programme = [
     heure: "15h00",
     mapsUrl: "https://www.google.com/maps/dir/?api=1&destination=Fleriskotstraat+92,+8432+Middelkerke,+Belgium",
     datetime: new Date("2026-09-05T15:00:00"),
-    icon: "⛪",
   },
   {
     label: "Soirée",
@@ -27,7 +25,6 @@ const programme = [
     heure: "19h00",
     mapsUrl: "https://www.google.com/maps/dir/?api=1&destination=Northlaan+13,+8400+Oostende,+Belgium",
     datetime: new Date("2026-09-05T19:00:00"),
-    icon: "🥂",
   },
 ];
 
@@ -183,7 +180,22 @@ export default function InvitationPage() {
                             <path d="M20 6L9 17l-5-5" strokeLinecap="round" strokeLinejoin="round" />
                           </svg>
                         ) : (
-                          <span>{step.icon}</span>
+                          <div style={{ flexShrink: 0, width: "36px", height: "36px", borderRadius: "50%", background: done ? "#b89a6a" : "#faf8f5", border: `1px solid ${done ? "#b89a6a" : "#d8cfc4"}`, display: "flex", alignItems: "center", justifyContent: "center", zIndex: 1 }}>
+  {done ? (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5">
+      <path d="M20 6L9 17l-5-5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  ) : (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#b89a6a" strokeWidth="1.5">
+      {step.label === "Mairie" && <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 10v11M16 10v11M12 10v11" strokeLinecap="round"/>}
+      {step.label === "Église" && <path d="M12 2v4M12 2l-3 3M12 2l3 3M3 9h18M5 9v11h14V9M9 21v-6h6v6" strokeLinecap="round"/>}
+      {step.label === "Soirée" && <>
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" strokeLinecap="round"/>
+        <circle cx="12" cy="9" r="2" fill="#b89a6a"/>
+      </>}
+    </svg>
+  )}
+</div>
                         )}
                       </div>
                       {/* Contenu */}
@@ -226,7 +238,11 @@ export default function InvitationPage() {
 
           {/* Bouton Maps soirée */}
           <a href="https://www.google.com/maps/dir/?api=1&destination=Northlaan+13,+8400+Oostende,+Belgium" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "10px 28px", border: "1px solid #b89a6a", color: "#b89a6a", fontSize: "11px", letterSpacing: "0.2em", textTransform: "uppercase", textDecoration: "none", marginBottom: "2rem", marginTop: "1rem" }}>
-             Voir l'itinéraire
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+  <circle cx="12" cy="9" r="2.5"/>
+</svg>
+Voir l'itinéraire
           </a>
 
           <p style={{ fontSize: "0.85rem", fontStyle: "italic", color: "#a89880" }}>
