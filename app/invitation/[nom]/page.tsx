@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
+import Link from "next/link";
 
 const garamond = { fontFamily: "'Cormorant Garamond', serif" };
 
@@ -146,7 +147,19 @@ export default function InvitationPage() {
           )}
 
           {/* Bouton Programme */}
-          <button
+          <Link
+  href="/programme"
+  className="btn-pulse"
+  style={{
+    display: "block", width: "100%", padding: "12px 24px", background: "#2c2118", color: "#b89a6a",
+    border: "none", fontSize: "11px", letterSpacing: "0.3em", textTransform: "uppercase",
+    cursor: "pointer", marginBottom: "0.5rem", textAlign: "center", textDecoration: "none",
+    ...garamond,
+  }}
+>
+  Programme de la journée
+</Link>
+      {/*   <button
             onClick={() => setShowProgramme(!showProgramme)}
             className="btn-pulse"
             style={{
@@ -158,7 +171,7 @@ export default function InvitationPage() {
             {showProgramme ? "✕ Fermer" : "✦ Programme de la journée"}
           </button>
 
-          {/* Programme déroulant */}
+          {/* Programme déroulant
           {showProgramme && (
             <div className="slide-down" style={{ textAlign: "left", background: "#f3ede4", border: "1px solid #e8e0d5", padding: "1.5rem", marginBottom: "1rem" }}>
               <p style={{ fontSize: "10px", letterSpacing: "0.3em", textTransform: "uppercase", color: "#b89a6a", marginBottom: "1.25rem", textAlign: "center" }}>
@@ -169,11 +182,11 @@ export default function InvitationPage() {
                   const done = isCompleted(step.datetime);
                   return (
                     <div key={step.label} style={{ position: "relative", display: "flex", gap: "16px", paddingBottom: i < programme.length - 1 ? "1.5rem" : "0" }}>
-                      {/* Ligne verticale */}
+                      {/* Ligne verticale
                       {i < programme.length - 1 && (
                         <div style={{ position: "absolute", left: "18px", top: "36px", bottom: "0", width: "1px", background: done ? "#b89a6a" : "#d8cfc4", opacity: 0.6 }} />
                       )}
-                      {/* Cercle */}
+                      {/* Cercle 
                       <div style={{ flexShrink: 0, width: "36px", height: "36px", borderRadius: "50%", background: done ? "#b89a6a" : "#faf8f5", border: `1px solid ${done ? "#b89a6a" : "#d8cfc4"}`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "16px", zIndex: 1 }}>
                         {done ? (
                           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5">
@@ -190,7 +203,7 @@ export default function InvitationPage() {
                           </svg>
                         )}
                       </div>
-                      {/* Contenu */}
+                      {/* Contenu
                       <div style={{ flex: 1, paddingTop: "4px" }}>
                         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: "2px" }}>
                           <p style={{ fontSize: "1rem", fontWeight: done ? 400 : 300, color: done ? "#a89880" : "#2c2118", textDecoration: done ? "line-through" : "none" }}>
@@ -208,7 +221,7 @@ export default function InvitationPage() {
                 })}
               </div>
             </div>
-          )}
+          )}*/}
 
           {/* Hébergements */}
           <div style={{ margin: "1.5rem 0", padding: "1rem 1.2rem", border: "1px dashed #d8cfc4", background: "#faf8f5", textAlign: "left" }}>
