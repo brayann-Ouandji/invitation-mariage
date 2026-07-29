@@ -1,8 +1,10 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
 import QRCode from "qrcode";
+import Link from "next/link";
 import { CalendarDays, MapPin } from "lucide-react";
  const garamond = { fontFamily: "'Cormorant Garamond', serif" };
+ 
 
 // ── Types ──────────────────────────────────────────────
 type TimeLeft = { jours: number; heures: number; minutes: number; secondes: number };
@@ -421,10 +423,7 @@ function LivreOrSection() {
 
 // ── Composant principal ────────────────────────────────
 
-// ══════════════════════════════════════════════════════
-// SECTION MUSIQUE — à coller dans page.tsx
-// juste avant : export default function Home()
-// ══════════════════════════════════════════════════════
+
 
 function MusiqueSection() {
   const [nom, setNom] = useState("");
@@ -647,38 +646,35 @@ export default function Home() {
 
           <div className="h-px w-24 bg-[#b89a6a] opacity-90 mx-auto" />
 
-          {/* Lieu */}
-          <div className="flex flex-col items-center gap-1">
-           <MapPin
-             size={20}
-             strokeWidth={1.5}
-             className="text-[#b89a6a] mb-1 opacity-90"
-                 />
-            <p className="text-x tracking-widest uppercase text-[#b89a6a]" style={{ fontFamily: "'Cormorant Garamond', serif" }}>Lieu</p>
-            <p className="text-2xl text-[#2c2118]" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300 }}>
-              Northlaan 13
-            </p>
-            <p className="text-s text-[#7a6a58] tracking-widest" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-              8400 Oostende, Belgique
-            </p>
-          </div>
-        </div>
+          <div className="h-px w-24 bg-[#b89a6a] opacity-30 mx-auto" />
 
-        {/* Bouton Google Maps */}
-        <a
-          href={mapsUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 mt-12 px-8 py-3 border border-[#b89a6a] text-[#b89a6a] text-x tracking-[0.25em] uppercase transition-all hover:bg-[#b89a6a] hover:text-white"
-          style={{ fontFamily: "'Cormorant Garamond', serif" }}
-        >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
-            <circle cx="12" cy="9" r="2.5" />
-          </svg>
-          Ouvrir l'itinéraire
-        </a>
-      </section>
+{/* Bouton Programme  */}
+<div className="flex flex-col items-center gap-3">
+  <span className="text-[#b89a6a] text-xl mb-1">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b89a6a" strokeWidth="1.4">
+      <path d="M12 20c-4-3-8-6.5-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 9c0 4.5-4 8-8 11z" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  </span>
+  <p className="text-xs tracking-widest uppercase text-[#b89a6a]" style={garamond}>Déroulé</p>
+  <p className="text-2xl text-[#2c2118]" style={{ ...garamond, fontWeight: 300 }}>
+    Toute la journée
+  </p>
+  <p className="text-sm text-[#7a6a58] tracking-widest" style={garamond}>
+    De la mairie à la piste de danse
+  </p>
+</div>
+</div>
+
+<Link
+  href="/programme"
+  className="inline-flex items-center gap-2 mt-12 px-8 py-3 border border-[#b89a6a] text-[#b89a6a] text-xs tracking-[0.25em] uppercase transition-all hover:bg-[#b89a6a] hover:text-white"
+  style={garamond}
+>
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <path d="M8 2v4M16 2v4M3 10h18M5 6h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2z" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+  Voir le programme
+</Link>
 
             {/* ══════════════════════════════════════
           STORY
