@@ -1,10 +1,9 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
 import QRCode from "qrcode";
-import Link from "next/link";
 import { CalendarDays, MapPin } from "lucide-react";
+import Link from "next/link";
  const garamond = { fontFamily: "'Cormorant Garamond', serif" };
- 
 
 // ── Types ──────────────────────────────────────────────
 type TimeLeft = { jours: number; heures: number; minutes: number; secondes: number };
@@ -644,11 +643,9 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="h-px w-24 bg-[#b89a6a] opacity-90 mx-auto" />
-
           <div className="h-px w-24 bg-[#b89a6a] opacity-30 mx-auto" />
 
-{/* Bouton Programme  */}
+{/* Bouton Programme — remplace Lieu + Ouvrir l'itinéraire */}
 <div className="flex flex-col items-center gap-3">
   <span className="text-[#b89a6a] text-xl mb-1">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b89a6a" strokeWidth="1.4">
@@ -675,6 +672,8 @@ export default function Home() {
   </svg>
   Voir le programme
 </Link>
+      
+      </section>
 
             {/* ══════════════════════════════════════
           STORY
