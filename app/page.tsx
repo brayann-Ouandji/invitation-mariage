@@ -36,6 +36,7 @@ const storyParagraphs = [
 
   // ─── RSVP Section ─────────────────────────────────────
 function RSVPSection() {
+  const [dejaExistant, setDejaExistant] = useState(false);
   const [nom, setNom] = useState("");
   const [statut, setStatut] = useState<"confirme" | "decline" | null>(null);
   const [loading, setLoading] = useState(false);
@@ -55,41 +56,55 @@ function RSVPSection() {
     }
   }, []);
   const handleRSVP = async (choix: "confirme" | "decline") => {
-    if (!nom.trim()) {
-      alert("Veuillez entrer votre nom complet.");
+  if (!nom.trim()) {
+    alert("Veuillez entrer votre nom complet.");
+    return;
+  }
+  setLoading(true);
+  try {
+    const res = await fetch("/api/rsvp", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ nom: nom.trim(), statut: choix }),
+    });
+    const data = await res.json();
+
+    if (!data.success) {
+      alert("Une erreur est survenue, veuillez réessayer.");
+      setLoading(false);
       return;
     }
-    setLoading(true);
-    try {
-      await fetch("/api/rsvp", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nom: nom.trim(), statut: choix }),
+
+    // Utilise le nom et le statut RÉELS enregistrés en BDD
+    // (utile si la personne existait déjà avec un autre statut)
+    const nomFinal = data.rsvp.nom;
+    const statutFinal = data.rsvp.statut;
+
+    setNom(nomFinal);
+    setStatut(statutFinal);
+    setConfirmed(true);
+    setDejaExistant(!!data.existing);
+
+    // Sauvegarde locale
+    localStorage.setItem("rsvp_statut", statutFinal);
+    localStorage.setItem("rsvp_nom", nomFinal);
+
+    if (statutFinal === "confirme") {
+      const nomEncoded = encodeURIComponent(nomFinal);
+      const qrContent = `https://invitation-mariage-7j6s.vercel.app/invitation/${nomEncoded}`;
+      const dataUrl = await QRCode.toDataURL(qrContent, {
+        width: 300,
+        margin: 2,
+        color: { dark: "#2c2118", light: "#faf8f5" },
       });
-      setStatut(choix);
-      setConfirmed(true);
-      // Sauvegarder dans localStorage
-      localStorage.setItem("rsvp_statut", choix);
-      localStorage.setItem("rsvp_nom", nom.trim());
- 
-      if (choix === "confirme") {
-       // const qrContent = `${nom.trim()}\nInvitation au mariage de Erika & Audry\nLe 5 septembre 2026 à 19h\nNorthlaan 13, 8400 Oostende`;
-       const nomEncoded = encodeURIComponent(nom.trim());
-       const qrContent = `https://invitation-mariage-7j6s.vercel.app/invitation/${nomEncoded}`;
-        const dataUrl = await QRCode.toDataURL(qrContent, {
-          width: 300,
-          margin: 2,
-          color: { dark: "#2c2118", light: "#faf8f5" },
-        });
-        setQrDataUrl(dataUrl);
-      }
-    } catch (e) {
-      alert("Une erreur est survenue, veuillez réessayer.");
-    } finally {
-      setLoading(false);
+      setQrDataUrl(dataUrl);
     }
-  };
- 
+  } catch (e) {
+    alert("Une erreur est survenue, veuillez réessayer.");
+  } finally {
+    setLoading(false);
+  }
+};
   const handleDownloadQR = () => {
     if (!qrDataUrl) return;
     const link = document.createElement("a");
@@ -179,8 +194,13 @@ function RSVPSection() {
                     </svg>
                   </div>
                   <p className="text-2xl text-[#2c2118]" style={{ ...garamond, fontWeight: 300 }}>
-                    Présence confirmée !
-                  </p>
+  {dejaExistant ? "Vous aviez déjà confirmé !" : "Présence confirmée !"}
+</p>
+{dejaExistant && (
+  <p className="text-xs text-[#a89880] italic mt-1" style={garamond}>
+    Voici à nouveau votre QR code personnel.
+  </p>
+)}
                   <p className="text-[#7a6a58]" style={garamond}>
                     À très bientôt, <span className="text-[#b89a6a] italic">{nom}</span> 🤍
                   </p>
