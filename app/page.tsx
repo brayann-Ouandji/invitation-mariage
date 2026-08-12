@@ -535,7 +535,7 @@ function MusiqueSection() {
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
-  const weddingDate = new Date("2026-09-05T19:00:00");
+  const weddingDate = new Date("2026-09-05T19:00:00+02:00");
   const timeLeft = useCountdown(weddingDate);
 
   useEffect(() => {
