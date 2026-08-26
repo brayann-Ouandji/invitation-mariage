@@ -149,6 +149,24 @@ function RSVPSection() {
   <p className="text-xs text-[#4a3f35] leading-relaxed" style={garamond}>
     La soirée est réservée aux <strong>adultes uniquement (18 ans et plus)</strong>. Aucune garderie ne sera prévue sur place. Merci pour votre compréhension.
   </p>
+   <p className="text-base text-[#4a3f35] leading-relaxed" style={{ ...garamond, fontWeight: 300 }}>
+        Votre présence à nos côtés est le plus beau des cadeaux.
+        Si vous souhaitez néanmoins nous témoigner votre affection par une attention, une participation
+         à notre cagnotte de mariage serait grandement appréciée.
+      </p>
+
+      {/* Coordonnées bancaires */}
+      <div className="w-full border border-[#e8e0d5] bg-[#faf8f5] p-5 flex flex-col gap-3 text-left">
+        <div>
+          <p className="text-[10px] tracking-widest uppercase text-[#b89a6a] mb-1" style={garamond}>Bénéficiaire</p>
+          <p className="text-base text-[#2c2118]" style={{ ...garamond, fontWeight: 300 }}>Audry Bangofa</p>
+        </div>
+        <div className="h-px bg-[#e8e0d5]" />
+        <div>
+          <p className="text-[10px] tracking-widest uppercase text-[#b89a6a] mb-1" style={garamond}>IBAN</p>
+          <p className="text-base text-[#2c2118] tracking-wider" style={{ ...garamond, fontWeight: 300 }}>BE94 3771 3164 6114</p>
+        </div>
+      </div>
 </div>
         {!confirmed ? (
           <div className="flex flex-col gap-4">
