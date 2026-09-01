@@ -623,7 +623,7 @@ export default function Home() {
       {/* ══════════════════════════════════════
           COMPTE À REBOURS
       ══════════════════════════════════════ */}
-      {/* <section className="py-20 px-4 bg-[#faf8f5]">
+       {/* <section className="py-20 px-4 bg-[#faf8f5]">
         <p className="text-center tracking-[0.3em] text-[20px] uppercase text-[#56001f] mb-10" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
           Plus que…
         </p>
@@ -647,9 +647,20 @@ export default function Home() {
               </span>
             </div>
           ))}
-        </div> */}
-        {/* ══ COMPTE À REBOURS ══ */}
-<section className="py-20 px-4 bg-[#faf8f5]">
+        </div> 
+      
+
+
+        {/* Séparateur décoratif */}
+      {/*  <div className="flex items-center justify-center gap-4 mt-16 mb-0">
+          <div className="h-px w-16 md:w-32 bg-[#56001f] opacity-40" />
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M9 1l2 6h6l-5 4 2 6-5-4-5 4 2-6-5-4h6z" fill="#56001f" opacity="0.6" />
+          </svg>
+          <div className="h-px w-16 md:w-32 bg-[#56001f] opacity-40" />
+        </div>
+      </section> */}
+      <section className="py-20 px-4 bg-[#faf8f5]">
   {timeLeft.termine ? (
     <div className="text-center">
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#b89a6a" strokeWidth="1.2" className="mx-auto mb-4">
@@ -683,16 +694,6 @@ export default function Home() {
     <div className="h-px w-16 md:w-32 bg-[#b89a6a] opacity-40" />
   </div>
 </section>
-
-        {/* Séparateur décoratif */}
-        <div className="flex items-center justify-center gap-4 mt-16 mb-0">
-          <div className="h-px w-16 md:w-32 bg-[#56001f] opacity-40" />
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-            <path d="M9 1l2 6h6l-5 4 2 6-5-4-5 4 2-6-5-4h6z" fill="#56001f" opacity="0.6" />
-          </svg>
-          <div className="h-px w-16 md:w-32 bg-[#56001f] opacity-40" />
-        </div>
-      </section>
 
       {/* ══════════════════════════════════════
           DÉTAILS DE L'ÉVÉNEMENT
@@ -826,7 +827,6 @@ export default function Home() {
           Avec tout notre amour 🤍
         </p>
       </footer>
- 
 
 
     </main>
