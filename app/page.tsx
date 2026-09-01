@@ -6,28 +6,31 @@ import Link from "next/link";
  const garamond = { fontFamily: "'Cormorant Garamond', serif" };
 
 // ── Types ──────────────────────────────────────────────
-type TimeLeft = { jours: number; heures: number; minutes: number; secondes: number };
+type TimeLeft = { jours: number; heures: number; minutes: number; secondes: number; termine?: boolean };
 type Message = { id: number; nom: string; message: string; createdAt: string };
 
 function useCountdown(target: Date): TimeLeft {
-  const calc = () => {
-    const diff = target.getTime() - Date.now();
-    if (diff <= 0) return { jours: 0, heures: 0, minutes: 0, secondes: 0 };
-    return {
-      jours: Math.floor(diff / 86400000),
-      heures: Math.floor((diff % 86400000) / 3600000),
-      minutes: Math.floor((diff % 3600000) / 60000),
-      secondes: Math.floor((diff % 60000) / 1000),
-    };
-  };
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(calc);
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>({ jours: 0, heures: 0, minutes: 0, secondes: 0, termine: false });
+
   useEffect(() => {
+    const calc = (): TimeLeft => {
+      const diff = target.getTime() - Date.now();
+      if (diff <= 0) return { jours: 0, heures: 0, minutes: 0, secondes: 0, termine: true };
+      return {
+        jours: Math.floor(diff / 86400000),
+        heures: Math.floor((diff % 86400000) / 3600000),
+        minutes: Math.floor((diff % 3600000) / 60000),
+        secondes: Math.floor((diff % 60000) / 1000),
+        termine: false,
+      };
+    };
+    setTimeLeft(calc());
     const id = setInterval(() => setTimeLeft(calc()), 1000);
     return () => clearInterval(id);
-  }, []);
+  }, [target]);
+
   return timeLeft;
 }
-
 const storyParagraphs = [
   "  Erika et Audry se sont rencontrés sur les réseaux sociaux, où leur passion commune pour l’art",
   "et la mode les a rapprochés. D’une simple amitié est née une belle histoire d’amour.",
@@ -620,7 +623,7 @@ export default function Home() {
       {/* ══════════════════════════════════════
           COMPTE À REBOURS
       ══════════════════════════════════════ */}
-      <section className="py-20 px-4 bg-[#faf8f5]">
+      {/* <section className="py-20 px-4 bg-[#faf8f5]">
         <p className="text-center tracking-[0.3em] text-[20px] uppercase text-[#56001f] mb-10" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
           Plus que…
         </p>
@@ -644,7 +647,42 @@ export default function Home() {
               </span>
             </div>
           ))}
-        </div>
+        </div> */}
+        {/* ══ COMPTE À REBOURS ══ */}
+<section className="py-20 px-4 bg-[#faf8f5]">
+  {timeLeft.termine ? (
+    <div className="text-center">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#b89a6a" strokeWidth="1.2" className="mx-auto mb-4">
+        <path d="M12 21c0-5-4.5-8-4.5-12A4.5 4.5 0 0112 4.5 4.5 4.5 0 0116.5 9c0 4-4.5 7-4.5 12z" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+      <p className="text-3xl md:text-4xl text-[#2c2118]" style={{ ...garamond, fontWeight: 300 }}>
+        Merci d'avoir célébré avec nous
+      </p>
+      <p className="text-sm text-[#7a6a58] mt-2 tracking-widest" style={garamond}>
+        Erika & Audry
+      </p>
+    </div>
+  ) : (
+    <>
+      <p className="text-center tracking-[0.3em] text-[10px] uppercase text-[#b89a6a] mb-10" style={garamond}>Plus que…</p>
+      <div className="flex justify-center gap-4 md:gap-12 flex-wrap">
+        {[{ value: timeLeft.jours, label: "Jours" }, { value: timeLeft.heures, label: "Heures" }, { value: timeLeft.minutes, label: "Minutes" }, { value: timeLeft.secondes, label: "Secondes" }].map(({ value, label }) => (
+          <div key={label} className="flex flex-col items-center">
+            <span className="text-5xl md:text-7xl text-[#2c2118] tabular-nums leading-none" style={{ ...garamond, fontWeight: 300 }} suppressHydrationWarning>
+              {String(value).padStart(2, "0")}
+            </span>
+            <span className="mt-2 text-[10px] tracking-[0.25em] uppercase text-[#b89a6a]" style={garamond}>{label}</span>
+          </div>
+        ))}
+      </div>
+    </>
+  )}
+  <div className="flex items-center justify-center gap-4 mt-16">
+    <div className="h-px w-16 md:w-32 bg-[#b89a6a] opacity-40" />
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1l2 6h6l-5 4 2 6-5-4-5 4 2-6-5-4h6z" fill="#b89a6a" opacity="0.6" /></svg>
+    <div className="h-px w-16 md:w-32 bg-[#b89a6a] opacity-40" />
+  </div>
+</section>
 
         {/* Séparateur décoratif */}
         <div className="flex items-center justify-center gap-4 mt-16 mb-0">
