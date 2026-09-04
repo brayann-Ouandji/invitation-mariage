@@ -15,14 +15,14 @@ const programme = [
   },
   {
     label: "Église",
-    adresse: "Fleriskotstraat 92, 8432 Middelkerke",
+    adresse: "Delhaize Oostende Sea'rena, 8400 Oostende",
     heure: "15h00",
-    mapsUrl: "https://www.google.com/maps/dir/?api=1&destination=Fleriskotstraat+92,+8432+Middelkerke,+Belgium",
+    mapsUrl: "https://www.google.com/maps/dir/?api=1&destination=DelhaizeOostendeSea'renaNorthlaan+13,+8400+Oostende,+Belgium",
     datetime: new Date("2026-09-05T15:00:00"),
   },
   {
     label: "Soirée",
-    adresse: "Northlaan 13, 8400 Oostende",
+    adresse: "Delhaize Oostende Sea'rena, 8400 Oostende",
     heure: "19h00",
     mapsUrl: "https://www.google.com/maps/dir/?api=1&destination=DelhaizeOostendeSea'renaNorthlaan+13,+8400+Oostende,+Belgium",
     datetime: new Date("2026-09-05T19:00:00"),
