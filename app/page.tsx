@@ -566,7 +566,7 @@ export default function Home() {
   }, []);
 
   const mapsUrl =
-    "https://www.google.com/maps/dir/?api=1&destination=Northlaan+13,+8400+Oostende,+Belgium";
+    "https://www.google.com/maps/dir/?api=1&destination=DelhaizeOostendeSea'renaNorthlaan+13,+8400+Oostende,+Belgium";
 
   return (
     <main className="min-h-screen bg-[#faf8f5]">

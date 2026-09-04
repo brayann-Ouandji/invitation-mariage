@@ -102,10 +102,10 @@ type Etape = {
 const etapes: Etape[] = [
   { label: "Mairie", detail: "Vindictivelaan 1, 8400 Oostende", heure: "10h00", datetime: new Date("2026-09-05T10:00:00"), icon: "mairie", mapsUrl: "https://www.google.com/maps/dir/?api=1&destination=Vindictivelaan+1,+8400+Oostende,+Belgium" },
   { label: "Souriez, vous êtes filmés", heure: "11h00", datetime: new Date("2026-09-05T11:00:00"), icon: "camera" },
-  { label: "Église", detail: "Fleriskotstraat 92, 8432 Middelkerke", heure: "15h00", datetime: new Date("2026-09-05T15:00:00"), icon: "eglise", mapsUrl: "https://www.google.com/maps/dir/?api=1&destination=Fleriskotstraat+92,+8432+Middelkerke,+Belgium" },
+  { label: "Église", detail: "Delhaize Oostende Sea'rena, 8400 Oostende", heure: "15h00", datetime: new Date("2026-09-05T15:00:00"), icon: "eglise", mapsUrl: "https://www.google.com/maps/dir/?api=1&destination=DelhaizeOostendeSea'renaNorthlaan+13,+8400+Oostende,+Belgium" },
   { label: "Souriez, vous êtes filmés", heure: "16h00", datetime: new Date("2026-09-05T16:00:00"), icon: "camera" },
   { label: "Trinquez aux nouveaux mariés", heure: "18h00", datetime: new Date("2026-09-05T18:00:00"), icon: "toast" },
-  { label: "Soirée", detail: "Northlaan 13, 8400 Oostende", heure: "19h00", datetime: new Date("2026-09-05T19:00:00"), icon: "soiree", mapsUrl: "https://www.google.com/maps/dir/?api=1&destination=Northlaan+13,+8400+Oostende,+Belgium" },
+  { label: "Soirée", detail: "Delhaize Oostende Sea'rena, 8400 Oostende", heure: "19h00", datetime: new Date("2026-09-05T19:00:00"), icon: "soiree", mapsUrl: "https://www.google.com/maps/dir/?api=1&destination=DelhaizeOostendeSea'renaNorthlaan+13,+8400+Oostende,+Belgium"},
   { label: "Régalez-vous, repas", heure: "20h00", datetime: new Date("2026-09-05T20:00:00"), icon: "repas" },
   { label: "Gâteau de mariage", heure: "23h00", datetime: new Date("2026-09-05T23:00:00"), icon: "gateau" },
   { label: "Dansez toute la nuit", heure: "00h00", datetime: new Date("2026-09-06T00:00:00"), icon: "danse" },
