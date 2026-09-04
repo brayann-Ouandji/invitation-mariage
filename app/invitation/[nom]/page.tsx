@@ -122,7 +122,7 @@ export default function InvitationPage() {
 
           {/* Lieu soirée */}
           <div style={{ marginBottom: "1rem" }}>
-            <p style={{ fontSize: "1.1rem", fontWeight: 300, color: "#2c2118" }}>Northlaan 13</p>
+            <p style={{ fontSize: "1.1rem", fontWeight: 300, color: "#2c2118" }}>Delhaize Oostende Sea'rena</p>
             <p style={{ fontSize: "0.95rem", color: "#7a6a58" }}>8400 Oostende, Belgique</p>
           </div>
 
