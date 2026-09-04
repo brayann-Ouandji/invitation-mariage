@@ -24,7 +24,7 @@ const programme = [
     label: "Soirée",
     adresse: "Northlaan 13, 8400 Oostende",
     heure: "19h00",
-    mapsUrl: "https://www.google.com/maps/dir/?api=1&destination=Northlaan+13,+8400+Oostende,+Belgium",
+    mapsUrl: "https://www.google.com/maps/dir/?api=1&destination=DelhaizeOostendeSea'renaNorthlaan+13,+8400+Oostende,+Belgium",
     datetime: new Date("2026-09-05T19:00:00"),
   },
 ];
